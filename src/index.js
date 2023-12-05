@@ -1,20 +1,21 @@
 import React, { useState, createContext } from "react";
 import './index.css';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route, Outlet} from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Works from "./pages/Works";
+import Stats from "./pages/Stats";
 
 const ThemeContext = createContext();
 
 function Layout(){
 
   const [state, setState] = useState({
-    theme: 'light',
+    theme: 'black',
     themes: {
-      light: {
+      black: {
         backGroundColorRadiantNavbar: "from-purple-700 via-purple-600 to-purple-400",
         navbarTextColor: "text-gray-200",
         backgroundTheme: "bg-gray-200",
@@ -29,7 +30,7 @@ function Layout(){
 
 
       },
-      black: {
+      light: {
         //Commun
         backGroundColorRadiantNavbar: "from-purple-700 via-purple-600 to-purple-400",
         background: "linear-gradient(342deg, rgba(129,29,213,1) 0%, rgba(119,49,177,1) 50%, rgba(220,200,61,1) 100%)",
@@ -52,7 +53,7 @@ function Layout(){
       "minHeight": "100%",
       "backgroundPosition": "center center",
       "backgroundRepeat": "no-repeat",
-      "min-height": "100vh"
+      "minHeight": "100vh"
     }
   return (
     <div style={styleBackground} className="min-h-full w-full">
@@ -65,7 +66,10 @@ function Layout(){
   );
 }
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+
+root.render(
   <React.StrictMode>
     <div className="Container mx-auto">
       <div className="place-items-center">
@@ -74,6 +78,7 @@ ReactDOM.render(
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/works" element={<Works />} />
+                <Route path="/stats" element={<Stats />} />
                 <Route path="*" element={<Home />} />
               </Route>
             </Routes>

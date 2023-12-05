@@ -1,49 +1,84 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from '../index.js'
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { ThemeContext } from '../index.js';
-import {Link} from "react-router-dom";
-import githubImg from "../assets/img/github_icon.png";
-import "./Navbar.css";
+import { GoGitBranch, GoCodeReview } from "react-icons/go";
+
+import {
+  NavbarContainer,
+  LeftContainer,
+  RightContainer,
+  NavbarExtendedContainer,
+  NavbarInnerContainer,
+  NavbarLinkContainer,
+  OpenLinksButton,
+  NavLink,
+  NavLinkBlack,
+  NavbarLinkExtended,
+  NavbarToggleButton
+} from "./NavbarStyle";
+import './Navbar.css';
 
 function Navbar() {
-    const [state, setState] = useContext(ThemeContext);
+  const [extendNavbar, setExtendNavbar] = useState(false);
+  const [state, setState] = useContext(ThemeContext);
 
-    function toggleTheme(){
-        setState(state => ({
-            ...state,
-            theme: state.theme === 'black' ? 'light' : 'black'
-          }))
-    }
-    return (
-        <nav className={`bg-gradient-to-r ${state.themes[state.theme].backGroundColorRadiantNavbar} ${state.themes[state.theme].navbarTextColor} font-spegiel-bold`}>
-            <div className={`ml-aut o grid grid-rows-1 grid-cols-5`}>
-                <div className={`${state.themes[state.theme].navbarTextColor} col-start-1 col-end-3`}>
-                    <Link style={{ textDecoration: 'none' }} className={` ${state.themes[state.theme].navbarTextColor} text-2xl  font-bold`} to="/"> &lt; Mtgs87 &#x2F;&gt; </Link>
-                    <Link style={{ textDecoration: 'none' }} className={`${state.themes[state.theme].navbarTextColor} p-2 text-xl`} to="/works"> Works </Link>
-                    <Link style={{ textDecoration: 'none' }} className={`${state.themes[state.theme].navbarTextColor} p-2 text-xl`} to="/"> Stats </Link>
-                    <Link style={{ textDecoration: 'none' }} className={`${state.themes[state.theme].navbarTextColor} p-2 text-xl`} href="https://github.com/MaxenceGlt"> Github <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"></svg> </Link>
-                </div>
-                <div className="col-start-5 col-end-5 p-2">
-                    <button
-                    className={`h-10 w-10 bg-peach opacity-1 rounded-lg ml-aut o ${state.themes[state.theme].backgroundTheme}`}
-                    onClick={()=>toggleTheme()}
-                    >
-                        {state.theme === "light" ? (
-                            <div>
-                                <MoonIcon color={"black"} boxSize={16} />
-                            </div>
-                            )
-                            
-                        :(
-                            <div>
-                                <SunIcon color={"white"} boxSize={16} />
-                            </div>
-                        )}
-                    </button>
-                </div>
+  return (
+    <NavbarContainer extendNavbar={extendNavbar}>
+      <NavbarInnerContainer>
+        <LeftContainer>
+          <NavLink to="/" className="logo__link font-spegiel-bold-nav font-card-title flex">Mtgs87<GoCodeReview className="mb-2" /></NavLink>
+        </LeftContainer>
+        <RightContainer>
+        <NavbarLinkContainer>
+        {state.theme === "black" ?
+            <div className="flex">
+                <NavLinkBlack to="/works"  className="navbar__link font-texxt">Works</NavLinkBlack>
+                <NavLinkBlack to="/stats" className="navbar__link font-texxt">Stats</NavLinkBlack>
+                <NavLinkBlack to="/other"  className="navbar__link font-texxt flex">Github<GoGitBranch /></NavLinkBlack>
+            </div>  
+          :
+            <div className="flex">
+              <NavLink to="/works"  className="navbar__link font-texxt">Works</NavLink>
+              <NavLink to="/stats" className="navbar__link font-texxt">Stats</NavLink>
+              <NavLink to="/other"  className="navbar__link font-texxt flex">Github<GoGitBranch /></NavLink>
             </div>
-        </nav>
-    )
+      }
+            <NavbarToggleButton className="justify-self-start">
+                <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                <MoonIcon color={"white"} boxSize={16} />
+                <span className="relative">
+                <input id="Toggle1" type="checkbox" className="hidden peer"  onClick={() => setState(state => ({
+                    ...state,
+                    theme: state.theme === 'black' ? 'light' : 'black'
+                }))}/>
+                <div className="w-10 h-6 rounded-full shadow-inner bg-purple-400 peer-checked:bg-yellow-400"></div>
+                <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
+                </span>
+                <SunIcon color={"white"} boxSize={16} />
+                </label>
+            </NavbarToggleButton>
+            <OpenLinksButton
+                onClick={() => {
+                    setExtendNavbar((curr) => !curr);
+                }}
+                >
+                {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
+              </OpenLinksButton>
+              
+          </NavbarLinkContainer>
+        </RightContainer>
+      </NavbarInnerContainer>
+      {extendNavbar && (
+        <NavbarExtendedContainer>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/"  className="navbar__link"> Home</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/works"  className="navbar__link"> Works</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/stats"  className="navbar__link" >Stats</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/" className="navbar__link"> Github</NavbarLinkExtended>
+        </NavbarExtendedContainer>
+      )}
+     
+    </NavbarContainer>
+  );
 }
 
 export default Navbar;

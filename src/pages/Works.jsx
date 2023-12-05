@@ -3,39 +3,51 @@ import { CDBProgress, CDBBadge, CDBContainer } from 'cdbreact';
 import { ThemeContext } from '../index.js';
 import quizzlolImg from "../assets/img/quizzlol.png";
 import healthyImg from "../assets/img/healthy_app.png";
+import './css/Works.css'
+import ProgressBar from "../components/ProgressBar.jsx";
 
 function Works(){
     
     const [state, setState] = useContext(ThemeContext);
 
+    //On gère le style des balise <hr>
+    const hrColor = {
+        "display": "block", "height": "1px",
+        "border": 0,
+        "borderTop": state.themes[state.theme].borderTop,
+        "margin": "1em 0",
+    }
+
     return(
         <div className='flex justify-center'>
-        <div className=' w-4/5'>
+        <div className='w-4/5'>
             <section>
-            <div class="mx-auto w-full max-w-7xl px-5 py-6 md:px-10 md:py-16 lg:py-22">
-                <h2 class="text-center text-3xl font-bold md:text-5xl text-purple-300">Portfolio</h2>
-                <p class="msm:text-base mb-4 text-center text-sm text-[#bbb7b7] md:mb-12 lg:mb-16">Project i did in my personnal time</p>
-                <div class="mx-auto grid justify-items-stretch gap-4 md:grid-cols-2 lg:gap-10">
-                <a href="https://quizzlol.fr" class="relative flex h-[300px] items-end">
+            <div class="mx-auto w-full max-w-7xl px-5 py-6 md:px-10 md:py-16 lg:py-2">
+                <div className="box">
+                    <h2 class="text-center text-3xl font-bold md:text-5xl text-purple-300">Portfolio</h2>
+                    <p class="msm:text-base text-center text-sm text-[#bbb7b7] ">Project i did in my personnal time</p>
+                </div>
+               <div class="mx-auto grid justify-items-stretch gap-4 lg:grid-cols-2 lg:gap-10">
+                <a href="https://quizzlol.fr" class="relative flex h-[300px] items-end transform transition duration-500 hover:scale-105">
                     <img src={quizzlolImg} alt="" class="inline-block h-full w-full rounded-lg object-cover" />
-                    <div class={`absolute bottom-5 left-5 w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-r ${state.themes[state.theme].backGroundColorRadiantNavbar} background-animate px-8 py-4`}>
+                    <div class={`absolute bottom-5 left-5 w-4/5 md:w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-r ${state.themes[state.theme].backGroundColorRadiantNavbar} background-animate px-8 py-4 hover:opacity-70`}>
                         <p class="text-sm font-medium sm:text-xl text-gray-300 font-texxt font-spegiel-bold">QuizzLOL</p>
                         <p class="text-sm sm:text-base text-gray-300">React / SpringBoot</p>
                         <CDBContainer className="flex">
-                            <CDBBadge className="justify-center text-gray-200 font-spegiel-bold w-full transform transition duration-500 hover:scale-105" color="success" borderType="pill">
-                                Link enable
+                            <CDBBadge className="justify-center text-gray-200 font-spegiel-bold w-full" color="success" borderType="pill">
+                                <span className="text-xxs">Link enable</span>
                             </CDBBadge>
                         </CDBContainer>
                     </div>
                 </a>
-                <a href="#" class="relative flex h-[300px] items-end">
+                <a href="#" class="relative flex h-[300px] items-end transform transition duration-500 hover:scale-105">
                     <img src={healthyImg} alt="" class="inline-block h-full w-full rounded-lg object-cover" />
-                    <div class={`absolute bottom-5 left-5 w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-l ${state.themes[state.theme].backGroundColorRadiantNavbar} background-animate px-8 py-4`}>
+                    <div class={`absolute bottom-5 left-5 w-4/5 md:w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-l ${state.themes[state.theme].backGroundColorRadiantNavbar} background-animate px-8 py-4 hover:opacity-70`}>
                         <p class="text-sm font-medium sm:text-xl text-gray-300 font-texxt font-spegiel-bold">Healthy</p>
                         <p class="text-sm sm:text-base text-gray-300">Angular / Flask</p>
                         <CDBContainer className="flex ">
-                            <CDBBadge className="justify-center text-gray-200 font-spegiel-bold w-full transform transition duration-500 hover:scale-105" color="danger" borderType="pill">
-                                Link disable
+                            <CDBBadge className="justify-center text-gray-200 font-spegiel-bold w-full" color="danger" borderType="pill">
+                            <span className="text-xxs">Link disable</span>
                             </CDBBadge>
                         </CDBContainer>
                     </div>
@@ -44,130 +56,58 @@ function Works(){
                 </div>
             </div>
             </section>
+            <div className='px-16 py-2'>
+                <hr className='mb-2' style={hrColor}></hr>
+            </div> 
             <p className="text-3xl text-gray-300 underline font-card-title">Stack coding</p>
-            <div className="grid grid-cols-12">
-                <CDBContainer className="col-start-1 col-end-6">
-                    <div className="flex flex-row  items-center">
-                        <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="primary" borderType="pill">
-                        HTML 5
-                        </CDBBadge>
-                        <CDBProgress
-                            className="ml-2"
-                            value={90}
-                            colors="primary"
-                        />
-                    </div>
+            <div className="flex flex-col gap-4 lg:grid lg:grid-cols-12">
+                <CDBContainer className="lg:col-start-1 lg:col-end-6">
+                    <ProgressBar color="primary" language="HTML 5" value={90}/>
                     <br></br>
                     <br></br>
-                    <div className="flex flex-row items-center">
-                        <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="secondary" borderType="pill">
-                        CSS
-                        </CDBBadge>
-                        <CDBProgress
-                            className="ml-2"
-                            value={90}
-                            colors="secondary"
-                        />
-                    </div>
+                    <ProgressBar color="secondary" language="Tailwind" value={90}/>
                     <br></br>
                     <br></br>
-                    <div className="flex flex-row items-center">
-                        <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="primary" borderType="pill">
-                        Javascript
-                        </CDBBadge>
-                        <CDBProgress
-                            className="ml-2"
-                            value={90}
-                            colors="primary"
-                        />
-                    </div>
+                    <ProgressBar color="primary" language="Javascript" value={90}/>
                     <br></br>
                     <br></br>
-                    <div className="flex flex-row items-center">
-                        <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="secondary" borderType="pill">
-                        React
-                        </CDBBadge>
-                        <CDBProgress
-                            className="ml-2"
-                            value={90}
-                            colors="secondary"
-                        />
-                    </div>
+                    <ProgressBar color="secondary" language="React" value={90}/>
                     <br></br>
                     <br></br>
-                    <div className="flex flex-row items-center">
-                        <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="primary" borderType="pill">
-                        Angular
-                        </CDBBadge>
-                        <CDBProgress
-                            className="ml-2"
-                            value={90}
-                            colors="primary"
-                        />
-                    </div>
+                    <ProgressBar color="primary" language="Angular" value={90}/>
                     </CDBContainer>
-                    <div className="col-start-6 col-end-7 place-self-center h-full border-l border-gray-500 ">
+                    <div className="separate--bar--div col-start-6 col-end-7 place-self-center h-full border-l border-gray-500 ">
 
                     </div>
-                    <CDBContainer className="col-start-7 col-end-12">
-                            <div className="flex flex-row  items-center">
-                                <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="primary" borderType="pill">
-                                Java
-                                </CDBBadge>
-                                <CDBProgress
-                                    className="ml-2"
-                                    value={90}
-                                    colors="primary"
-                                />
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="flex flex-row items-center">
-                                <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="secondary" borderType="pill">
-                                Linux
-                                </CDBBadge>
-                                <CDBProgress
-                                    className="ml-2"
-                                    value={90}
-                                    colors="secondary"
-                                />
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="flex flex-row items-center">
-                                <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="primary" borderType="pill">
-                                PostgreSQL
-                                </CDBBadge>
-                                <CDBProgress
-                                    className="ml-2"
-                                    value={90}
-                                    colors="primary"
-                                />
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="flex flex-row items-center">
-                                <CDBBadge className="text-gray-200 shadow-[0_30px_30px_30px_rgba(97,76,161,0.3)] place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="secondary" borderType="pill">
-                                Solidity
-                                </CDBBadge>
-                                <CDBProgress
-                                    className="ml-2 shadow-[0_2px_2px_2px_rgba(97,76,161,0.3)]"
-                                    value={90}
-                                    colors="secondary"
-                                />
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div className="flex flex-row items-center">
-                                <CDBBadge className="text-gray-200 place-content-center font-spegiel-bold w-4/12 transform transition duration-500 hover:scale-105" color="primary" borderType="pill">
-                                Python
-                                </CDBBadge>
-                                <CDBProgress
-                                    className="ml-2 shadow-[0_2px_2px_2px_rgba(41,96,198,0.3)]"
-                                    value={90}
-                                    colors="primary"
-                                />
-                            </div>
+                    <CDBContainer className="lg:col-start-7 lg:col-end-12 progress--bar--div2">
+                        <ProgressBar color="primary" language="Java" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="secondary" language="Linux" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="primary" language="PostgreSQL" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="secondary" language="Solidity" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="primary" language="Python" value={90}/>
+                    </CDBContainer>
+                    <CDBContainer className="lg:col-start-7 lg:col-end-12 progress--bar--div">
+                        <ProgressBar color="secondary" language="Java" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="primary" language="Linux" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="secondary" language="PostgreSQL" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="primary" language="Solidity" value={90}/>
+                        <br></br>
+                        <br></br>
+                        <ProgressBar color="secondary" language="Python" value={90}/>
                     </CDBContainer>
                 </div>
         </div>

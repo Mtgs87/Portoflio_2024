@@ -1,3 +1,30 @@
+@media (min-width: 760px)
+{
+    .quizz--logo--phone{
+        display:none;
+    }
+
+}
+
+.quizz--logo--phone{
+    justify-items: center;
+    width: full;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.logo__link{
+    line-height: 1;
+}
+
+.navbar__link:hover {
+    transform: translateY(-2px);
+  }
+
 .background-animate {
     background-size: 400%;
 
