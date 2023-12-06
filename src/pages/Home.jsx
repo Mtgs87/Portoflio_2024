@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { ThemeContext } from '../index.js';
-import mtgs87 from "../assets/img/mtgs87.jpg";
 import ethImg from "../assets/img/eth_logo.png";
 import airplaneImg from "../assets/img/airplane.png";
 import sportImg from "../assets/img/sport_logo.png";
+import codeGif from "../assets/gif/code.gif";
 import "./css/Home.css";
 import "./css/Stats.css";
 
@@ -30,11 +30,7 @@ function Home() {
                     </div>
                     <div className="flex justify-center lg:justify-end">
                         <div className="w-10/12 flex justify-center">
-                        <img
-                            alt="" width={170}
-                            src={mtgs87}
-                            className="rounded-full place-self-center content-center justify-self-center box"
-                        />
+                        <img className="rounded-xl box w-3/5" align="right" alt="GIF" src={codeGif} />
                         </div>
                     </div>
                 </div>
