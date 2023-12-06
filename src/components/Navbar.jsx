@@ -23,29 +23,29 @@ function Navbar() {
   const [state, setState] = useContext(ThemeContext);
 
   return (
-    <NavbarContainer extendNavbar={extendNavbar}>
+    <NavbarContainer className={`${state.themes[state.theme].borderBottomNavbar}`} extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
         <LeftContainer>
-          <NavLink to="/" className="logo__link font-spegiel-bold-nav font-card-title flex">Mtgs87<GoCodeReview className="mb-2" /></NavLink>
+          <NavLink to="/" className={`logo__link font-spegiel-bold-nav font-card-title flex ${state.themes[state.theme].navbarTextColor}`}>Mtgs87<GoCodeReview className="mb-2" /></NavLink>
         </LeftContainer>
         <RightContainer>
         <NavbarLinkContainer>
         {state.theme === "black" ?
             <div className="flex">
-                <NavLinkBlack to="/works"  className="navbar__link font-texxt">Works</NavLinkBlack>
-                <NavLinkBlack to="/stats" className="navbar__link font-texxt">Stats</NavLinkBlack>
-                <NavLinkBlack to="/other"  className="navbar__link font-texxt flex">Github<GoGitBranch /></NavLinkBlack>
+                <NavLinkBlack to="/works"  className={`navbar__link font-texxt ${state.themes[state.theme].navbarTextColor}`}>Works</NavLinkBlack>
+                <NavLinkBlack to="/stats" className={`navbar__link font-texxt ${state.themes[state.theme].navbarTextColor}`}>Stats</NavLinkBlack>
+                <NavLinkBlack to="/other"  className={`navbar__link font-texxt flex ${state.themes[state.theme].navbarTextColor}`}>Github<GoGitBranch /></NavLinkBlack>
             </div>  
           :
             <div className="flex">
-              <NavLink to="/works"  className="navbar__link font-texxt">Works</NavLink>
-              <NavLink to="/stats" className="navbar__link font-texxt">Stats</NavLink>
-              <NavLink to="/other"  className="navbar__link font-texxt flex">Github<GoGitBranch /></NavLink>
+              <NavLink to="/works"  className={`navbar__link font-texxt ${state.themes[state.theme].navbarTextColor}`}>Works</NavLink>
+              <NavLink to="/stats" className={`navbar__link font-texxt ${state.themes[state.theme].navbarTextColor}`}>Stats</NavLink>
+              <NavLink to="/other"  className={`navbar__link font-texxt flex ${state.themes[state.theme].navbarTextColor}`}>Github<GoGitBranch /></NavLink>
             </div>
       }
             <NavbarToggleButton className="justify-self-start">
                 <label className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
-                <MoonIcon color={"white"} boxSize={16} />
+                <MoonIcon color={`${state.themes[state.theme].navbarLogo}`} boxSize={16} />
                 <span className="relative">
                 <input id="Toggle1" type="checkbox" className="hidden peer"  onClick={() => setState(state => ({
                     ...state,
@@ -54,7 +54,7 @@ function Navbar() {
                 <div className="w-10 h-6 rounded-full shadow-inner bg-purple-400 peer-checked:bg-yellow-400"></div>
                 <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
                 </span>
-                <SunIcon color={"white"} boxSize={16} />
+                <SunIcon color={`${state.themes[state.theme].navbarLogo}`} boxSize={16} />
                 </label>
             </NavbarToggleButton>
             <OpenLinksButton
@@ -70,10 +70,10 @@ function Navbar() {
       </NavbarInnerContainer>
       {extendNavbar && (
         <NavbarExtendedContainer>
-          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/"  className="navbar__link"> Home</NavbarLinkExtended>
-          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/works"  className="navbar__link"> Works</NavbarLinkExtended>
-          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/stats"  className="navbar__link" >Stats</NavbarLinkExtended>
-          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/" className="navbar__link"> Github</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/"  className={`navbar__link ${state.themes[state.theme].navbarTextColor}`}> Home</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/works"  className={`navbar__link ${state.themes[state.theme].navbarTextColor}`}> Works</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/stats"  className={`navbar__link ${state.themes[state.theme].navbarTextColor}`} >Stats</NavbarLinkExtended>
+          <NavbarLinkExtended style={{textDecoration: 'none'}} onClick={() => {setExtendNavbar((curr) => !curr)}} to="/" className={`navbar__link ${state.themes[state.theme].navbarTextColor}`}> Github</NavbarLinkExtended>
         </NavbarExtendedContainer>
       )}
      

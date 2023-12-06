@@ -24,8 +24,8 @@ function Works(){
             <section>
             <div class="mx-auto w-full max-w-7xl px-5 py-6 md:px-10 md:py-16 lg:py-2">
                 <div className="box">
-                    <h2 class="text-center text-3xl font-bold md:text-5xl text-purple-300">Portfolio</h2>
-                    <p class="msm:text-base text-center text-sm text-[#bbb7b7] ">Project i did in my personnal time</p>
+                    <h2 class={`text-center text-3xl font-bold md:text-5xl ${state.themes[state.theme].worksTextTopColor}`}>Portfolio</h2>
+                    <p class={`sm:text-base text-center text-sm ${state.themes[state.theme].worksTextTopSubColor} font-texxt`}>Project i did in my personnal time</p>
                 </div>
                <div class="mx-auto grid justify-items-stretch gap-4 lg:grid-cols-2 lg:gap-10">
                 <a href="https://quizzlol.fr" class="relative flex h-[300px] items-end transform transition duration-500 hover:scale-105">
@@ -59,7 +59,7 @@ function Works(){
             <div className='px-16 py-2'>
                 <hr className='mb-2' style={hrColor}></hr>
             </div> 
-            <p className="text-3xl text-gray-300 underline font-card-title">Stack coding</p>
+            <p className={`text-3xl ${state.themes[state.theme].worksTextColor} underline font-card-title`}>Stack coding</p>
             <div className="flex flex-col gap-4 lg:grid lg:grid-cols-12">
                 <CDBContainer className="lg:col-start-1 lg:col-end-6">
                     <ProgressBar color="primary" language="HTML 5" value={90}/>

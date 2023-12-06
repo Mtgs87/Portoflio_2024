@@ -6,8 +6,6 @@ export const NavbarContainer = styled.nav`
   height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
   display: flex;
   flex-direction: column;
-  border-bottom: white solid;
-  border-bottom-width: 1px;
 
   @media (min-width: 766px) {
     height: 80px;
@@ -40,7 +38,6 @@ export const NavbarLinkContainer = styled.div`
 `;
 
 export const NavLink = styled(Link)`
-  color: white;
   font-size: 1.25rem;
   align-items: center;
   line-height: 1.75rem;  margin: 10px;
@@ -68,7 +65,6 @@ export const NavLink = styled(Link)`
 `;
 
 export const NavLinkBlack = styled(Link)`
-  color: white;
   font-size: 1.25rem;
   line-height: 1.75rem;  
   margin: 10px;
@@ -96,7 +92,6 @@ export const NavLinkBlack = styled(Link)`
 `;
 
 export const NavbarLinkExtended = styled(Link)`
-  color: white;
   font-size: x-large;
   margin: 10px;
   &.active {

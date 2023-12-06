@@ -1,3 +1,5 @@
+import React, { useContext } from "react";
+import { ThemeContext } from '../index.js';
 import "./css/Stats.css";
 import codesWarsImg from "../assets/img/codewars.png";
 import rootMeImg from "../assets/img/rootme.png";
@@ -5,11 +7,13 @@ import codesWarsLogoImg from "../assets/img/codewars_logo.svg";
 import rootMeLogoImg from "../assets/img/rootme_logo.png";
 
 function Stats(){
+    const [state, setState] = useContext(ThemeContext);
+
     return (
         <div className='flex justify-center'>
             <div className=' w-4/5'>
                 <div className="boxStats">
-                    <h2 className="text-center text-3xl font-bold md:text-5xl text-purple-300">Applications Trainings</h2>
+                    <h2 className={`text-center text-3xl font-bold md:text-5xl ${state.themes[state.theme].statsTextTopColor}`}>Applications Trainings</h2>
                 </div>
                 <section className="">
                 <div class="mx-auto w-full max-w-7xl px-5 py-8 md:px-4 md:py-4 lg:pt-0">
