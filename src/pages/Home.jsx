@@ -20,7 +20,7 @@ function Home() {
 
     return (
         <div className="flex justify-center">
-        <div className=" xs:w-11/12 md:w-4/5">
+        <div className=" xs:w-11/12 md:w-4/5 body">
             <div className="grid grid-rows-1 pt-4 md:pt-20">
                 <div className="grid grid-cols-1  lg:grid-cols-2 w-full">
                     <div className="self-center">

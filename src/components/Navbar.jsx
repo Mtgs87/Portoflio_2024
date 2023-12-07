@@ -23,7 +23,7 @@ function Navbar() {
   const [state, setState] = useContext(ThemeContext);
 
   return (
-    <NavbarContainer className={`${state.themes[state.theme].borderBottomNavbar}`} extendNavbar={extendNavbar}>
+    <NavbarContainer className={`${state.themes[state.theme].borderBottomNavbar} backdrop-blur sticky`} extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
         <LeftContainer>
           <NavLink to="/" className={`logo__link font-spegiel-bold-nav font-card-title flex ${state.themes[state.theme].navbarTextColor}`}>Mtgs87<GoCodeReview className="mb-2" /></NavLink>
