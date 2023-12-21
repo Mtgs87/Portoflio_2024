@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { ThemeContext } from '../index.js'
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { GoGitBranch, GoCodeReview } from "react-icons/go";
+import {Link} from "react-router-dom";
 
 import {
   NavbarContainer,
@@ -25,8 +26,8 @@ function Navbar() {
   return (
     <NavbarContainer className={`${state.themes[state.theme].borderBottomNavbar} backdrop-blur sticky`} extendNavbar={extendNavbar}>
       <NavbarInnerContainer>
-        <LeftContainer>
-          <NavLink to="/" className={`logo__link font-spegiel-bold-nav font-card-title flex ${state.themes[state.theme].navbarTextColor}`}>Mtgs87<GoCodeReview className="mb-2" /></NavLink>
+      <LeftContainer>
+          <Link to="/" className={`logo__link font-spegiel-bold-nav font-card-title flex ${state.themes[state.theme].navbarTextColor}`}>Mtgs87<GoCodeReview className="mb-2" /></Link>
         </LeftContainer>
         <RightContainer>
         <NavbarLinkContainer>

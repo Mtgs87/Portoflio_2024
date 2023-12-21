@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { CDBProgress, CDBBadge, CDBContainer } from 'cdbreact';
+import React, { useContext, useEffect } from "react";
+import { CDBBadge, CDBContainer } from 'cdbreact';
 import { ThemeContext } from '../index.js';
 import quizzlolImg from "../assets/img/quizzlol.png";
 import healthyImg from "../assets/img/healthy_app.png";
@@ -9,6 +9,10 @@ import ProgressBar from "../components/ProgressBar.jsx";
 function Works(){
     
     const [state, setState] = useContext(ThemeContext);
+
+    useEffect(()=> {
+        window.scrollTo(0, 0);
+    }, [])
 
     //On gère le style des balise <hr>
     const hrColor = {
@@ -30,9 +34,9 @@ function Works(){
                <div class="mx-auto grid justify-items-stretch gap-4 lg:grid-cols-2 lg:gap-10">
                 <a href="https://quizzlol.fr" class="relative flex h-[300px] items-end transform transition duration-500 hover:scale-105">
                     <img src={quizzlolImg} alt="" class="inline-block h-full w-full rounded-lg object-cover" />
-                    <div class={`absolute bottom-5 left-5 w-4/5 md:w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-r ${state.themes[state.theme].backGroundColorRadiantNavbar} background-animate px-8 py-4 hover:opacity-70`}>
-                        <p class="text-sm font-medium sm:text-xl text-gray-300 font-texxt font-spegiel-bold">QuizzLOL</p>
-                        <p class="text-sm sm:text-base text-gray-300">React / SpringBoot</p>
+                    <div class={`absolute bottom-5 left-5 w-4/5 md:w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-r ${state.themes[state.theme].backGroundColorRadiantNavbar} ${state.themes[state.theme].worksTextColor} background-animate px-8 py-4 hover:opacity-70`}>
+                        <p class="text-sm font-medium sm:text-xl  font-texxt font-spegiel-bold">QuizzLOL</p>
+                        <p class="text-sm sm:text-base ">React / SpringBoot</p>
                         <CDBContainer className="flex">
                             <CDBBadge className="justify-center text-gray-200 font-spegiel-bold w-full" color="success" borderType="pill">
                                 <span className="text-xxs">Link enable</span>
@@ -42,9 +46,9 @@ function Works(){
                 </a>
                 <a href="#" class="relative flex h-[300px] items-end transform transition duration-500 hover:scale-105">
                     <img src={healthyImg} alt="" class="inline-block h-full w-full rounded-lg object-cover" />
-                    <div class={`absolute bottom-5 left-5 w-4/5 md:w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-l ${state.themes[state.theme].backGroundColorRadiantNavbar} background-animate px-8 py-4 hover:opacity-70`}>
-                        <p class="text-sm font-medium sm:text-xl text-gray-300 font-texxt font-spegiel-bold">Healthy</p>
-                        <p class="text-sm sm:text-base text-gray-300">Angular / Flask</p>
+                    <div class={`absolute bottom-5 left-5 w-4/5 md:w-3/5 flex flex-col justify-center rounded-lg bg-gradient-to-l ${state.themes[state.theme].backGroundColorRadiantNavbar} ${state.themes[state.theme].worksTextColor} background-animate px-8 py-4 hover:opacity-70`}>
+                        <p class="text-sm font-medium sm:text-xl font-texxt font-spegiel-bold">Healthy</p>
+                        <p class="text-sm sm:text-base">Angular / Flask</p>
                         <CDBContainer className="flex ">
                             <CDBBadge className="justify-center text-gray-200 font-spegiel-bold w-full" color="danger" borderType="pill">
                             <span className="text-xxs">Link disable</span>
@@ -65,49 +69,49 @@ function Works(){
                     <ProgressBar color="primary" language="HTML 5" value={90}/>
                     <br></br>
                     <br></br>
-                    <ProgressBar color="secondary" language="Tailwind" value={90}/>
+                    <ProgressBar color="secondary" language="Tailwind" value={75}/>
                     <br></br>
                     <br></br>
-                    <ProgressBar color="primary" language="Javascript" value={90}/>
+                    <ProgressBar color="primary" language="Javascript" value={70}/>
                     <br></br>
                     <br></br>
-                    <ProgressBar color="secondary" language="React" value={90}/>
+                    <ProgressBar color="secondary" language="React" value={70}/>
                     <br></br>
                     <br></br>
-                    <ProgressBar color="primary" language="Angular" value={90}/>
+                    <ProgressBar color="primary" language="Angular" value={70}/>
                     </CDBContainer>
                     <div className="separate--bar--div col-start-6 col-end-7 place-self-center h-full border-l border-gray-500 ">
 
                     </div>
                     <CDBContainer className="lg:col-start-7 lg:col-end-12 progress--bar--div2">
-                        <ProgressBar color="primary" language="Java" value={90}/>
+                        <ProgressBar color="primary" language="Java" value={75}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="secondary" language="Linux" value={90}/>
+                        <ProgressBar color="secondary" language="Linux" value={50}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="primary" language="PostgreSQL" value={90}/>
+                        <ProgressBar color="primary" language="PostgreSQL" value={70}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="secondary" language="Solidity" value={90}/>
+                        <ProgressBar color="secondary" language="Solidity" value={15}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="primary" language="Python" value={90}/>
+                        <ProgressBar color="primary" language="Python" value={60}/>
                     </CDBContainer>
                     <CDBContainer className="lg:col-start-7 lg:col-end-12 progress--bar--div">
-                        <ProgressBar color="secondary" language="Java" value={90}/>
+                        <ProgressBar color="secondary" language="Java" value={75}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="primary" language="Linux" value={90}/>
+                        <ProgressBar color="primary" language="Linux" value={50}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="secondary" language="PostgreSQL" value={90}/>
+                        <ProgressBar color="secondary" language="PostgreSQL" value={70}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="primary" language="Solidity" value={90}/>
+                        <ProgressBar color="primary" language="Solidity" value={15}/>
                         <br></br>
                         <br></br>
-                        <ProgressBar color="secondary" language="Python" value={90}/>
+                        <ProgressBar color="secondary" language="Python" value={60}/>
                     </CDBContainer>
                 </div>
         </div>

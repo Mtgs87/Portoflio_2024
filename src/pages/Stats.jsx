@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ThemeContext } from '../index.js';
 import "./css/Stats.css";
 import codesWarsImg from "../assets/img/codewars.png";
@@ -8,6 +8,10 @@ import rootMeLogoImg from "../assets/img/rootme_logo.png";
 
 function Stats(){
     const [state, setState] = useContext(ThemeContext);
+
+    useEffect(()=> {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className='flex justify-center'>
