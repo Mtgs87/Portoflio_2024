@@ -1,6 +1,6 @@
 name: React CI/CD
 
-# Only trigger, when the Docker build workflow succeeded
+# Only trigger, when the Docker build workflow succeeded !
 on:
   workflow_run: 
     workflows: ["Docker CI/CD"]
