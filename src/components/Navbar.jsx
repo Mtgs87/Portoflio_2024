@@ -52,7 +52,7 @@ function Navbar() {
                     ...state,
                     theme: state.theme === 'black' ? 'light' : 'black'
                 }))}/>
-                <div className="w-10 h-6 rounded-full shadow-inner bg-purple-400 peer-checked:bg-yellow-400"></div>
+                <div className="w-10 h-6 rounded-full shadow-inner bg-purple-400 peer-checked:bg-cyan-400"></div>
                 <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
                 </span>
                 <SunIcon color={`${state.themes[state.theme].navbarLogo}`} boxSize={16} />
