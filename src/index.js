@@ -83,7 +83,7 @@ function Layout(){
         background_button_home:"bg-[#4CB9E7]",
         background_button_home_hover:"hover:bg-cyan-500",
         background_footer_mail:"bg-[#FFECD6]",
-        footerTextColor:"text-gray-600",
+        footerTextColor:"text-white-600",
         background_button_footer_hover:"hover:text-cyan-500",
         background_label_footer_mail:"bg-[#4CB9E7]",
         background_label_button_mail:"bg-[#4CB9E7]",
