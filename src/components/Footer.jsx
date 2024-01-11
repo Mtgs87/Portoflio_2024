@@ -30,11 +30,11 @@ function Footer() {
       <div className={`${state.themes[state.theme].background_footer_mail} border-purple-400 rounded-xl w-full md:w-2/4 mt-4`}>
         <form onSubmit={sendEmail}>
           <div className=" p-4 w-full md:flex flex-col justify-center items-center">
-            <label className={`mr-2 ${state.themes[state.theme].background_label_footer_mail} p-2 rounded-lg ${state.themes[state.theme].footerTextColor} font-spegiel-bold font-bold w-2/4 mb-2 md:mb-0 md:w-1/4`}> Your email :</label>
+            <label className={`mr-2 ${state.themes[state.theme].background_label_footer_mail} text-white p-2 rounded-lg ${state.themes[state.theme].footerTextColor} font-spegiel-bold font-bold w-2/4 mb-2 md:mb-0 md:w-1/4`}> Your email :</label>
             <input type="email" name="email_form" className="rounded-xl p-2 font-spegiel-bold w-full "></input>
           </div>
           <div className=" p-4 w-full flex-col justify-center items-center">
-          <label className={`mr-2 ${state.themes[state.theme].background_label_footer_mail}  p-2 rounded-lg ${state.themes[state.theme].footerTextColor} font-spegiel-bold font-bold w-2/4 md:w-1/4 mb-2`}> Your message :</label>
+          <label className={`mr-2 ${state.themes[state.theme].background_label_footer_mail} text-white p-2 rounded-lg ${state.themes[state.theme].footerTextColor} font-spegiel-bold font-bold w-2/4 md:w-1/4 mb-2`}> Your message :</label>
           <textarea type="text" name="message" className="rounded-xl p-2 font-spegiel-bold w-full h-40"></textarea>
           </div>
           <div className="flex justify-center items-center">

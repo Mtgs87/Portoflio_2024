@@ -1,10 +1,7 @@
 version: '3.7'
 
 services:
-
   mtgs87:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mtgs87/mtgs87:latest
     ports:
-      - '1337:80'
+      - '1338:80'
