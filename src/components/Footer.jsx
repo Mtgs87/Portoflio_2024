@@ -19,7 +19,7 @@ function Footer() {
 <footer class={`block`}>
   <div class="py-16 md:py-16 lg:py-16 mx-auto w-full max-w-7xl px-5 md:px-10">
     <div class="flex-col flex items-center">
-      <Link to="/" style={{textDecoration:'none'}} className={`${state.themes[state.theme].footerTextColor} mb-8 max-w-full font-spegiel-bold-nav font-card-title flex`}>Mtgs87<GoCodeReview className="mb-2" /></Link>
+      <Link to="/" style={{textDecoration:'none'}} className={`${state.themes[state.theme].footerTextColorMtgs} mb-8 max-w-full font-spegiel-bold-nav font-card-title flex`}>Mtgs87<GoCodeReview className="mb-2" /></Link>
      
       <div class={`text-center font-semibold max-[991px]: max-[991px]:py-1 ${state.themes[state.theme].footerTextColor}`}>
         <span class={`inline-block px-6 py-2 font-normal  transition ${state.themes[state.theme].background_button_footer_hover}`}>Full-Stack</span>
