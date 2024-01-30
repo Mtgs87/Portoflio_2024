@@ -13,5 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run Docker-compose
-      run: docker-compose -p mtgs87 -f /home/portofolio-project/Portoflio_2024/docker-compose.yml up -d --build --force-recreate
+      run: docker-compose pull && docker-compose -p mtgs87 -f /home/portofolio-project/Portoflio_2024/docker-compose.yml up -d
 
