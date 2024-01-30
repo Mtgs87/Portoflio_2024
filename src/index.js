@@ -49,7 +49,7 @@ function Layout(){
         title_works:"text-[#A367B1]",
         title_stats:"text-[#A367B1]",        
         footerTextColor: "text-gray-200",
-        footerTextColorMtgs:"text-gray-200",
+        footerTextColorMtgs:"text-red-200",
         background_button_footer_hover:"hover:text-[#FFD1E3]",
         background_label_footer_mail:"bg-[#A367B1]",
         background_label_button_mail:"bg-[#A367B1]",
