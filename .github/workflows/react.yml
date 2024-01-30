@@ -2,9 +2,6 @@ name: React CI/CD
 
 # Only trigger, when the Docker build workflow succeeded !
 on:
-  push:
-    branches:
-      - "build"
   workflow_run: 
     workflows: ["Docker CI/CD"]
     types:
