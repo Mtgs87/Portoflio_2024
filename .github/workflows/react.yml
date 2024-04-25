@@ -9,7 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: gh-runner
+    runs-on: 
+    - self-hosted
+    - label-1
     steps:
     - uses: actions/checkout@v3
     - name: Run Docker-pull && Docker-compose
